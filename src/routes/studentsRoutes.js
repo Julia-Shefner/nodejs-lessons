@@ -10,12 +10,13 @@ import {
   createStudentSchema,
   studentIdParamsSchema,
   updateStudentSchema,
+  getStudentsSchema,
 } from '../validations/studentsValidation.js';
 import { celebrate } from 'celebrate';
 
 const router = Router();
 
-router.get('/students', getStudents);
+router.get('/students', celebrate(getStudentsSchema), getStudents);
 
 router.get(
   '/students/:studentId',

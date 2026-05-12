@@ -1,5 +1,4 @@
-import { Schema } from 'mongoose';
-import { model } from 'mongoose';
+import { Schema, model } from 'mongoose';
 
 const studentSchema = new Schema(
   {
@@ -31,5 +30,7 @@ const studentSchema = new Schema(
     versionKey: false,
   },
 );
+
+studentSchema.index({ gender: 1, avgMark: 1 });
 
 export const Student = model('Student', studentSchema);
