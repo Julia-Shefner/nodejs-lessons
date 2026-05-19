@@ -13,8 +13,11 @@ import {
   getStudentsSchema,
 } from '../validations/studentsValidation.js';
 import { celebrate } from 'celebrate';
+import { authenticate } from '../middleware/authenticate.js';
 
 const router = Router();
+
+router.use('/students', authenticate);
 
 router.get('/students', celebrate(getStudentsSchema), getStudents);
 
